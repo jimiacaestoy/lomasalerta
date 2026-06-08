@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | Lomas Alerta</title>
+    <!-- Mantenemos el estilo de la cabecera del index para que sean idénticas -->
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+        .cabecera { background: linear-gradient(to bottom, #042446, #1869c0); color: white; padding: 10px; position: relative; min-height: 120px; }
+        .logo-area { position: absolute; top: 10px; left: 10px; }
+        .logo-area img { height: 100px; }
+        .reloj-area { position: absolute; top: 10px; right: 20px; font-size: 0.9em; }
+        .menu-area { text-align: right; margin-top: 98px; }
+        .btn-menu { color: white !important; margin: 0 3px; text-decoration: none; transition: 0.3s; }
+        .btn-menu:hover { text-shadow: 2px 2px 4px rgb(20, 19, 19); }
+        .redes { background: #e0e0e0; padding: 2px; text-align: center; border-bottom: 2px solid #ccc; }
+        .redes img { height: 30px; margin: 0 8px; transition: transform 0.3s ease, filter 0.3s ease; }
+        .redes img:hover { transform: scale(0.9); filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); }
+       
+        /* Estilos para el contenido de Quiénes Somos */
+        .contenido-legal { max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        .contacto-area { text-align: center; margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header class="cabecera">
+        <div class="logo-area"><img src="index/logo.png" alt="Lomas Alerta"></div>
+        <div class="reloj-area">🕒 <span id="horaActual"></span> | 📅 <span id="diaActual"></span></div>
+        <div class="menu-area">
+            <nav>
+                <a href="index.html" class="btn-menu">Inicio</a> |
+                <a href="servicios-comunidad.html" class="btn-menu">Servicios a la Comunidad</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="redes">
+        <a href="#"><img src="index/ico/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="index/ico/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="index/ico/tiktok.png" alt="TikTok"></a>
+        <a href="#"><img src="index/ico/kwai.png" alt="Kwai"></a>
+        <a href="#"><img src="index/ico/youtube.png" alt="YouTube"></a>
+    </section>
+
+      <main class="contenido-legal">
+        <h1>Quiénes Somos</h1>
+        <p><strong>Nuestra Identidad:</strong> Lomas Alerta es la agencia de comunicación comunitaria, soberana y registrada, dedicada a la seguridad y convivencia de nuestros vecinos.</p>
+        <p><strong>Propiedad y Aporte Vecinal:</strong> Al publicar, el vecino colabora con el acervo informativo de la agencia, otorgando a la administración los derechos para procesar y difundir la información en nuestra estructura técnica.</p>
+        <p><strong>Seguridad y Convivencia:</strong> Cada autor es responsable de lo que publica. Lomas Alerta ejerce su derecho de admisión y seguridad, editando o eliminando contenidos que afecten la legalidad o integridad de la comunidad.</p>
+        <p><strong>Autoridad Técnica:</strong> <em>Informar es transformar.</em> Todo contenido bajo nuestro sello es procesado en nuestra propia infraestructura para garantizar la protección y la soberanía informativa del vecino.</p>
+
+        <div class="contacto-area">
+            <h3>Contacto</h3>
+            <p>
+                <a href="mailto:tu-email@lomasalerta.com.ar">Email</a> |
+                <a href="https://wa.me/TUNUMERO">WhatsApp</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        function actualizarReloj() {
+            const ahora = new Date();
+            document.getElementById("horaActual").innerHTML = ahora.toLocaleTimeString("es-AR", { hour12: false });
+            document.getElementById("diaActual").innerHTML = ahora.toLocaleDateString("es-AR");
+        }
+        setInterval(actualizarReloj, 1000);
+        actualizarReloj();
+    </script>
+    <script>
+    // Bloquear clic derecho
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloquear selección de texto
+    document.onselectstart = function() { return false; };
+
+    // Bloquear combinación de teclas (Ctrl+U, Ctrl+S, F12) para evitar inspeccionar
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) {
+            return false;
+        }
+    }
+</script>
+     <!-- Pie de página con sello de soberanía -->
+    <footer style="text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid #ccc; font-size: 0.8em; color: #555;">
+        <p>&copy; 2026 Lomas Alerta | Jimmy & Alberto®</p>
+    </footer>
+</body>
+</html>
