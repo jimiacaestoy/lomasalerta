@@ -50,7 +50,14 @@
         }
 
         /* Alturas diferenciadas por clase */
-        .contenido-radio { height: 600px; position: relative; background: #000; overflow: hidden; }
+        .contenido-radio {
+    height: 600px;
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0; /* Esto evita que el navegador reserve espacio para texto */
+}
         .contenido-mapa { height: 400px; position: relative; }
 
         /* Estilos del Bunker */
