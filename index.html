@@ -15,86 +15,38 @@
             min-height: 120px;
         }
 
-        .btn-menu {
-            color: white !important;
-            margin: 0 3px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
+        .btn-menu { color: white !important; margin: 0 3px; text-decoration: none; transition: 0.3s; }
         .btn-menu:hover { text-shadow: 2px 2px 4px rgb(20, 19, 19); }
-
         .logo-area { position: absolute; top: 10px; left: 10px; }
         .logo-area img { height: 100px; }
-
         .reloj-area { position: absolute; top: 10px; right: 20px; font-size: 0.9em; }
-
         .menu-area { text-align: right; margin-top: 98px; }
-     
+    
         .redes { background: #e0e0e0; padding: 2px; text-align: center; border-bottom: 2px solid #ccc; }
         .redes img { height: 30px; margin: 0 8px; transition: transform 0.3s ease, filter 0.3s ease; }
         .redes img:hover { transform: scale(0.9); filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); }
 
-        .contenedor-principal { display: flex; flex-wrap: wrap; padding: 20px; gap: 20px; justify-content: center; }
-      
-        .panel { flex: 0 0 30%; min-width: 320px; border: none; }
-      
-        .panel h2 {
-            text-align: center;
-            background: #0056b3;
-            color: white;
-            margin: 0;
-            padding: 10px;
-            font-size: 1.2em;
-            border-radius: 10px 10px 0 0;
-        }
-
-        /* Alturas diferenciadas por clase */
-        .contenido-radio {
-    height: 600px;
-    position: relative;
-    background: #000;
-    overflow: hidden;
-    padding: 0;
-    line-height: 0; /* Esto evita que el navegador reserve espacio para texto */
-}
-        .contenido-mapa { height: 400px; position: relative; }
-
-        /* Estilos del Bunker */
-        #player {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            background-image: url('ReproductorVisual/fondo.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            margin: 0;
-        }
+        .contenedor-principal { display: flex; flex-wrap: wrap; padding: 20px; gap: 20px; justify-content: flex-start; align-items: flex-start; }
+     
+        /* Bloque Fijo del Bunker */
+        .panel-radio { width: 338px; }
+        .panel-radio h2 { text-align: center; background: #0056b3; color: white; margin: 0; padding: 10px; font-size: 1.2em; border-radius: 10px 10px 0 0; }
+        .contenido-radio { height: 600px; width: 338px; position: relative; background: #000; overflow: hidden; }
+        #player { position: absolute; top: 0; left: 0; width: 338px; height: 600px; background-image: url('ReproductorVisual/fondo.png'); background-size: cover; background-position: center; }
         #fra0 { position: absolute; top: 0; width: 100%; height: 10%; }
-        #btnPlay {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
+        #btnPlay { position: absolute; bottom: 10px; left: 10px; background: none; border: none; cursor: pointer; padding: 0; }
         #iconPlay { width: 70px; }
-        #fra3 {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        #fra3 { position: absolute; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 8px; }
         #cajonera-redes { display: flex; gap: 8px; }
         #cajonera-redes img { width: 40px; transition: filter 0.3s ease; }
         #cajonera-redes img:hover { filter: brightness(1.2) sepia(0.5); cursor: pointer; }
 
-        @media (max-width: 900px) { .panel { flex: 0 0 100%; } }
+        /* Bloques Fluidos de Mapas */
+        .panel-mapa { flex: 0 0 400px; height: 400px; }
+        .panel-mapa h2 { text-align: center; background: #0056b3; color: white; margin: 0; padding: 10px; font-size: 1.2em; border-radius: 10px 10px 0 0; }
+        .contenido-mapa { height: calc(100% - 45px); position: relative; }
+       
+        @media (max-width: 900px) { .panel-radio, .panel-mapa { width: 100%; max-width: 338px; } }
     </style>
 </head>
 <body>
@@ -119,14 +71,12 @@
     </section>
 
     <main class="contenedor-principal">
-        <section class="panel">
+        <section class="panel-radio">
             <h2>RADIO ONLINE</h2>
             <div class="contenido-radio">
                 <div id="player">
                     <div id="fra0"></div>
-                    <button id="btnPlay">
-                        <img id="iconPlay" src="ReproductorVisual/ico/play.png" alt="Play">
-                    </button>
+                    <button id="btnPlay"><img id="iconPlay" src="ReproductorVisual/ico/play.png" alt="Play"></button>
                     <div id="fra3">
                         <div id="cajonera-redes">
                             <img src="ReproductorVisual/ico/logoinstagram.png" alt="IG">
@@ -139,11 +89,13 @@
                 </div>
             </div>
         </section>
-        <section class="panel">
+
+        <section class="panel-mapa">
             <h2>MAPA DE INSEGURIDAD</h2>
             <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1DF8sKdQeiGuLf2vPCZgh5C49P6lV-T0" style="width:100%; height:100%; border:0;"></iframe></div>
         </section>
-        <section class="panel">
+
+        <section class="panel-mapa">
             <h2>MAPA DE BASURALES</h2>
             <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1U3RAVDEwcf4F1YH1FjZ_pFm4KKFwi5M" style="width:100%; height:100%; border:0;"></iframe></div>
         </section>
@@ -155,13 +107,8 @@
         const audio = document.getElementById('audioPlayer');
 
         btnPlay.addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                iconPlay.src = 'ReproductorVisual/ico/stop.png';
-            } else {
-                audio.pause();
-                iconPlay.src = 'ReproductorVisual/ico/play.png';
-            }
+            if (audio.paused) { audio.play(); iconPlay.src = 'ReproductorVisual/ico/stop.png'; }
+            else { audio.pause(); iconPlay.src = 'ReproductorVisual/ico/play.png'; }
         });
 
         function actualizarReloj() {
@@ -171,16 +118,21 @@
         }
         setInterval(actualizarReloj, 1000);
         actualizarReloj();
-
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.onselectstart = function() { return false; };
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) {
-                return false;
-            }
-        }
     </script>
-      <!-- Pie de página con sello de soberanía -->
+    <script>
+    // Bloquear clic derecho
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Bloquear selección de texto
+    document.onselectstart = function() { return false; };
+
+    // Bloquear combinación de teclas (Ctrl+U, Ctrl+S, F12) para evitar inspeccionar
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) {
+            return false;
+        }
+    }
+</script>
     <footer style="text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid #ccc; font-size: 0.8em; color: #555;">
         <p>&copy; 2026 Lomas Alerta | Jimmy & Alberto®</p>
     </footer>
