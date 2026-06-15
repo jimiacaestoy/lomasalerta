@@ -14,35 +14,37 @@
         .logo-area img { height: 100px; }
         .reloj-area { position: absolute; top: 10px; right: 20px; font-size: 0.9em; }
         .menu-area { text-align: right; margin-top: 98px; }
-   
+  
         .redes { background: #e0e0e0; padding: 2px; text-align: center; border-bottom: 2px solid #ccc; }
         .redes img { height: 30px; margin: 0 8px; transition: transform 0.3s ease, filter 0.3s ease; }
         .redes img:hover { transform: scale(0.9); filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5)); }
 
         .contenedor-principal {
             display: flex; flex-wrap: wrap; padding: 20px; gap: 20px;
-            justify-content: flex-start; align-items: flex-start;
+            justify-content: center; align-items: flex-start;
             width: 100%; box-sizing: border-box;
         }
-    
-        .panel-radio { width: 338px; flex: 0 0 338px; }
+   
+        /* Estilos Quirúrgicos para eliminar escalones */
+        .panel-radio { width: 100%; max-width: 338px; margin: 0 auto; }
         .panel-radio h2 { text-align: center; background: #0056b3; color: white; margin: 0; padding: 10px; font-size: 1.2em; border-radius: 10px 10px 0 0; }
-        .contenido-radio { width: 338px; height: 600px; background: #000; overflow: hidden; position: relative; }
-        #player { position: absolute; top: 0; left: 0; width: 338px; height: 600px; background-image: url('ReproductorVisual/fondo.png'); background-size: cover; }
+        .contenido-radio { width: 100%; padding-top: 177.5%; position: relative; background: #000; overflow: hidden; }
+        #player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('ReproductorVisual/fondo.png'); background-size: cover; background-position: center; }
+       
         #fra0 { position: absolute; top: 0; width: 100%; height: 10%; }
         #btnPlay { position: absolute; bottom: 10px; left: 10px; background: none; border: none; cursor: pointer; padding: 0; }
         #iconPlay { width: 70px; }
         #fra3 { position: absolute; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 8px; }
         #cajonera-redes { display: flex; gap: 8px; }
-        /* Efectos recuperados */
         #cajonera-redes img { width: 40px; transition: filter 0.3s ease; }
         #cajonera-redes img:hover { filter: brightness(1.2) sepia(0.5); cursor: pointer; }
 
-        .panel-mapa { width: 400px; flex: 0 0 400px; }
+        .panel-mapa { width: 100%; max-width: 400px; margin: 0 auto; }
         .panel-mapa h2 { text-align: center; background: #0056b3; color: white; margin: 0; padding: 10px; font-size: 1.2em; border-radius: 10px 10px 0 0; }
-        .contenido-mapa { height: 400px; width: 400px; }
+        .contenido-mapa { width: 100%; height: 400px; }
+        .contenido-mapa iframe { width: 100%; height: 100%; border: 0; }
 
-        @media (max-width: 900px) { .panel-radio, .panel-mapa { width: 100%; flex: 0 0 100%; } }
+        @media (max-width: 900px) { .panel-radio, .panel-mapa { width: 100%; } }
     </style>
 </head>
 <body>
@@ -88,12 +90,12 @@
 
         <section class="panel-mapa">
             <h2>MAPA DE INSEGURIDAD</h2>
-            <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1DF8sKdQeiGuLf2vPCZgh5C49P6lV-T0" style="width:100%; height:100%; border:0;"></iframe></div>
+            <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1DF8sKdQeiGuLf2vPCZgh5C49P6lV-T0"></iframe></div>
         </section>
 
         <section class="panel-mapa">
             <h2>MAPA DE BASURALES</h2>
-            <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1U3RAVDEwcf4F1YH1FjZ_pFm4KKFwi5M" style="width:100%; height:100%; border:0;"></iframe></div>
+            <div class="contenido-mapa"><iframe src="https://www.google.com/maps/d/embed?mid=1U3RAVDEwcf4F1YH1FjZ_pFm4KKFwi5M"></iframe></div>
         </section>
     </main>
 
